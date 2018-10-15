@@ -3,38 +3,17 @@ package com.sling.daterange;
 import java.lang.Exception;
 import java.util.Date;
 
-// import junit.framework.Test;
-// import junit.framework.TestCase;
-// import junit.framework.TestSuite;
-
 import org.junit.Test;
 import static org.junit.Assert.assertEquals;
-import static org.junit.Assert.assertTrue;
 
-/**
- * Unit test for simple App.
- */
-public class DateRangeTest 
-    // extends TestCase
-{
+public class OverlapFinderTest {
     Date now = new Date();
     Date sevenDaysAgo = addDays(now, -7);
     Date sevenDaysFuture = addDays(now, 7);
     Date fourteenDaysFuture = addDays(now, 14);
 
-    // public DateRangeTest( String testName )
-    // {
-    //     super( testName );
-    // }
-
-    // public static Test suite()
-    // {
-    //     return new TestSuite( DateRangeTest.class );
-    // }
-
     @Test
-    public void testRangeOneExtendsIntoRangeTwo() throws Exception
-    {
+    public void testRangeOneExtendsIntoRangeTwo() throws Exception {
         DateRange range1 = new DateRange(sevenDaysAgo, sevenDaysFuture);
         DateRange range2 = new DateRange(now, fourteenDaysFuture);
         DateRange expected = new DateRange(now, sevenDaysFuture);
@@ -46,8 +25,7 @@ public class DateRangeTest
     }
 
     @Test
-    public void testRangeTwoExtendsIntoRangeOne() throws Exception
-    {
+    public void testRangeTwoExtendsIntoRangeOne() throws Exception {
         DateRange range2 = new DateRange(sevenDaysAgo, sevenDaysFuture);
         DateRange range1 = new DateRange(now, fourteenDaysFuture);
         DateRange expected = new DateRange(now, sevenDaysFuture);
@@ -59,8 +37,7 @@ public class DateRangeTest
     }
 
     @Test(expected = Exception.class)
-    public void testRangeOneEndsAtInstantRangeTwoBegins() throws Exception
-    {
+    public void testRangeOneEndsAtInstantRangeTwoBegins() throws Exception {
         DateRange range1 = new DateRange(sevenDaysAgo, now);
         DateRange range2 = new DateRange(now, fourteenDaysFuture);
         OverlapFinder finder = new OverlapFinder();
@@ -68,8 +45,7 @@ public class DateRangeTest
     }
 
     @Test(expected = Exception.class)
-    public void testRangeTwoEndsAtInstantRangeOneBegins() throws Exception
-    {
+    public void testRangeTwoEndsAtInstantRangeOneBegins() throws Exception {
         DateRange range2 = new DateRange(sevenDaysAgo, now);
         DateRange range1 = new DateRange(now, fourteenDaysFuture);
         OverlapFinder finder = new OverlapFinder();
@@ -77,8 +53,7 @@ public class DateRangeTest
     }
 
     @Test
-    public void testRangeOneCompletelyContainsRangeTwo() throws Exception
-    {
+    public void testRangeOneCompletelyContainsRangeTwo() throws Exception {
         DateRange range1 = new DateRange(sevenDaysAgo, fourteenDaysFuture);
         DateRange range2 = new DateRange(now, sevenDaysFuture);
         DateRange expected = new DateRange(now, sevenDaysFuture);
@@ -90,8 +65,7 @@ public class DateRangeTest
     }
 
     @Test
-    public void testRangeTwoCompletelyContainsRangeOne() throws Exception
-    {
+    public void testRangeTwoCompletelyContainsRangeOne() throws Exception {
         DateRange range2 = new DateRange(sevenDaysAgo, sevenDaysFuture);
         DateRange range1 = new DateRange(now, fourteenDaysFuture);
         DateRange expected = new DateRange(now, sevenDaysFuture);
@@ -103,8 +77,7 @@ public class DateRangeTest
     }
 
     @Test(expected = Exception.class)
-    public void testRangeOneDoesNotOverlapWithRangeTwo() throws Exception
-    {
+    public void testRangeOneDoesNotOverlapWithRangeTwo() throws Exception {
         DateRange range1 = new DateRange(sevenDaysAgo, now);
         DateRange range2 = new DateRange(sevenDaysFuture, fourteenDaysFuture);
         OverlapFinder finder = new OverlapFinder();
@@ -112,8 +85,7 @@ public class DateRangeTest
     }
 
     @Test(expected = Exception.class)
-    public void testRangeTwoDoesNotOverlapWithRangeOne() throws Exception
-    {
+    public void testRangeTwoDoesNotOverlapWithRangeOne() throws Exception {
         DateRange range2 = new DateRange(sevenDaysAgo, now);
         DateRange range1 = new DateRange(sevenDaysFuture, fourteenDaysFuture);
         OverlapFinder finder = new OverlapFinder();
@@ -121,8 +93,7 @@ public class DateRangeTest
     }
 
     @Test
-    public void testRangeOneEqualsRangeTwo() throws Exception
-    {
+    public void testRangeOneEqualsRangeTwo() throws Exception {
         DateRange range1 = new DateRange(sevenDaysAgo, fourteenDaysFuture);
         DateRange range2 = new DateRange(sevenDaysAgo, fourteenDaysFuture);
         DateRange expected = new DateRange(sevenDaysAgo, fourteenDaysFuture);
