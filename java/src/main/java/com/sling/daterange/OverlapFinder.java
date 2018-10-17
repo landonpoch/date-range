@@ -1,8 +1,5 @@
 package com.sling.daterange;
 
-import java.lang.Exception;
-import java.util.Date;
-
 class OverlapFinder {
     /**
     * Returns a DateRange containing the range of overlap of ranges passed in

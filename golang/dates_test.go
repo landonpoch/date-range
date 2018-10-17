@@ -41,8 +41,8 @@ func TestRange1EndsAtInstantRange2Begins(t *testing.T) {
 }
 
 func TestRange2EndsAtInstantRange1Begins(t *testing.T) {
-	var dateRange1 = DateRange{sevenDaysAgo, now}
-	var dateRange2 = DateRange{now, fourteenDaysFuture}
+	var dateRange2 = DateRange{sevenDaysAgo, now}
+	var dateRange1 = DateRange{now, fourteenDaysFuture}
 	_, err := findOverlap(dateRange1, dateRange2)
 
 	assert.NotNil(t, err, "Expected an error")
