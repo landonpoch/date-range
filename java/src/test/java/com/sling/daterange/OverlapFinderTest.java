@@ -66,8 +66,8 @@ public class OverlapFinderTest {
 
     @Test
     public void testRangeTwoCompletelyContainsRangeOne() throws Exception {
-        DateRange range2 = new DateRange(sevenDaysAgo, sevenDaysFuture);
-        DateRange range1 = new DateRange(now, fourteenDaysFuture);
+        DateRange range2 = new DateRange(sevenDaysAgo, fourteenDaysFuture);
+        DateRange range1 = new DateRange(now, sevenDaysFuture);
         DateRange expected = new DateRange(now, sevenDaysFuture);
         OverlapFinder finder = new OverlapFinder();
         DateRange actual = finder.findOverlap(range1, range2);
