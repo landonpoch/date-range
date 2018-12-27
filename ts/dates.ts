@@ -4,6 +4,7 @@
  */
 const findOverlap = (dateRange1: DateRange, dateRange2: DateRange): DateRange => {
     // TODO: Implement
+    return { begin: new Date(), end: new Date() };
 }
 
 interface DateRange {

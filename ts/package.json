@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "test": "mocha dates.test.js"
+    "test": "tsc && mocha dates.test.js"
   },
   "keywords": [],
   "author": "",
@@ -13,6 +13,7 @@
     "@types/chai": "^4.1.6",
     "@types/mocha": "^5.2.5",
     "chai": "^4.2.0",
-    "mocha": "^5.2.0"
+    "mocha": "^5.2.0",
+    "typescript": "^3.2.2"
   }
 }
