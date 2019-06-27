@@ -13,8 +13,8 @@ describe('findOverlap', () => {
         const expected = { begin: now, end: sevenDaysFuture };
         const result = findOverlap(dateRange1, dateRange2);
 
-        expect(expected.begin).to.equal(result.begin);
-        expect(expected.end).to.equal(result.end);
+        expect(expected.begin.valueOf()).to.equal(result.begin.valueOf());
+        expect(expected.end.valueOf()).to.equal(result.end.valueOf());
     });
 
     it('should return overlap when range two extends into range one', () => {
@@ -23,8 +23,8 @@ describe('findOverlap', () => {
         const expected = { begin: now, end: sevenDaysFuture };
         const result = findOverlap(dateRange1, dateRange2);
 
-        expect(expected.begin).to.equal(result.begin);
-        expect(expected.end).to.equal(result.end);
+        expect(expected.begin.valueOf()).to.equal(result.begin.valueOf());
+        expect(expected.end.valueOf()).to.equal(result.end.valueOf());
     });
 
     it('should throw exception when range one ends at instant range two begins', () => {
@@ -49,18 +49,18 @@ describe('findOverlap', () => {
         const expected = { begin: now, end: sevenDaysFuture };
         const result = findOverlap(dateRange1, dateRange2);
 
-        expect(expected.begin).to.equal(result.begin);
-        expect(expected.end).to.equal(result.end);
+        expect(expected.begin.valueOf()).to.equal(result.begin.valueOf());
+        expect(expected.end.valueOf()).to.equal(result.end.valueOf());
     });
-    
+
     it('should return overlap when range two completely contains range one', () => {
         const dateRange2 = { begin: sevenDaysAgo, end: fourteenDaysFuture };
         const dateRange1 = { begin: now, end: sevenDaysFuture };
         const expected = { begin: now, end: sevenDaysFuture };
         const result = findOverlap(dateRange1, dateRange2);
 
-        expect(expected.begin).to.equal(result.begin);
-        expect(expected.end).to.equal(result.end);
+        expect(expected.begin.valueOf()).to.equal(result.begin.valueOf());
+        expect(expected.end.valueOf()).to.equal(result.end.valueOf());
     });
 
     it('should throw exception when range one does not overlap with range two', () => {
@@ -85,8 +85,8 @@ describe('findOverlap', () => {
         const expected = { begin: sevenDaysAgo, end: fourteenDaysFuture };
         const result = findOverlap(dateRange1, dateRange2);
 
-        expect(expected.begin).to.equal(result.begin);
-        expect(expected.end).to.equal(result.end);
+        expect(expected.begin.valueOf()).to.equal(result.begin.valueOf());
+        expect(expected.end.valueOf()).to.equal(result.end.valueOf());
     });
 });
 
