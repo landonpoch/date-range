@@ -13,3 +13,17 @@ The following languages may one day get support:
  - F#
 
 No plans exist to develop tests for these at the moment.
+
+## Setup C#
+
+```
+brew update
+brew tap caskroom/cask
+brew cask install dotnet
+```
+
+Install the dotnet sdk from https://dotnet.microsoft.com/download
+
+Open Visual Studio Code and follow the prompts to add extensions for C#.
+
+Run or debug tests in VSCode. Or run them at the command-line with `dotnet test`.
